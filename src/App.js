@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <NavBarComponent />
-      {/* <GalleryComponent saga="Harry Potter" />
-      <GalleryComponent saga="Lord of the Rings" /> */}
+      <GalleryComponent saga="Shrek" />
+      <GalleryComponent saga="Lord of the Rings" />
       <GalleryComponent saga="Twilight" />
     </>
   );
