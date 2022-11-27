@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Card, Row, Col, Carousel, Container } from "react-bootstrap";
+import { Card, Row, Col, Carousel } from "react-bootstrap";
 import "./style.css";
 
 class GalleryComponent extends Component {
@@ -67,15 +67,3 @@ class GalleryComponent extends Component {
 }
 
 export default GalleryComponent;
-
-{
-  /* <Row>
-  {this.state.movies.map((element, i) => (
-    <Col key={i}>
-      <Card>
-        <Card.Img className="movie-cover" variant="top" src={element.Poster} />
-      </Card>
-    </Col>
-  ))}
-</Row>; */
-}

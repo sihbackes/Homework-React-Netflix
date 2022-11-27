@@ -1,0 +1,10 @@
+.genre-details {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.genre-button {
+  margin-left: 4em;
+}

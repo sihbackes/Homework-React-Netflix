@@ -1,3 +1,19 @@
 .logo-netflix-nav {
   height: 48px;
 }
+
+.avatar {
+  height: 36px;
+}
+.avatar-small {
+  height: 24px;
+  margin-right: 10px;
+}
+
+.icon {
+  margin: 4px 10px;
+}
+
+.color-text {
+  color: white;
+}
