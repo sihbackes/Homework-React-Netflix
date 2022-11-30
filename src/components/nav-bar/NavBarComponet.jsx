@@ -25,25 +25,13 @@ const NavBarComponent = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-between">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li
-              className={
-                location.pathname === "/tv-shows"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <Link to="/" className="navbar-links">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
-            <li
-              className={
-                location.pathname === "/tv-shows"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <Link to="/tv-shows" className="navbar-links">
+            <li className="nav-item">
+              <Link to="/tv-shows" className="nav-link">
                 Tv Shows
               </Link>
             </li>

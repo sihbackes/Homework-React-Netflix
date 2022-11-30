@@ -43,9 +43,9 @@ const TvShows = () => {
         </div>
       </div>
       <div>
-        <GalleryComponent saga="Hunger Games" />
+        <GalleryComponent saga="The Office" />
+        <GalleryComponent saga="Friends" />
         <GalleryComponent saga="Sherlock Holmes" />
-        <GalleryComponent saga="Avatar" />
       </div>
     </div>
   );

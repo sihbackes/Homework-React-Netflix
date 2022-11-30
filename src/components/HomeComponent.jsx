@@ -1,7 +1,6 @@
 import GalleryComponent from "./gallery/GalleryComponent";
 
 const Home = () => {
-  console.log("oi");
   return (
     <div>
       <GalleryComponent saga="Shrek" />

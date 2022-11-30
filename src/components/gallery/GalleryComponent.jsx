@@ -8,14 +8,14 @@ const GalleryComponent = ({ saga }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchData = async () => {
       try {
         let response = await fetch(
           `http://www.omdbapi.com/?apikey=db3657b9&s=${saga}`
         );
         if (response.ok) {
           let data = await response.json();
-          console.log(data);
+
           setMovies(data.Search);
         }
       } catch (err) {
@@ -23,11 +23,10 @@ const GalleryComponent = ({ saga }) => {
       }
     };
     if (saga) {
-      fetchComments();
+      fetchData();
     }
   }, [saga]);
 
-  console.log();
   return (
     <div className="bg-black">
       <h3 className="title-saga mt-3 mb-3">{saga}</h3>
@@ -37,12 +36,11 @@ const GalleryComponent = ({ saga }) => {
             {movies.slice(0, 5).map((element, i) => (
               <Col key={i}>
                 <Card>
-                  <Link to={"/details/" + movies.imdbID}>
+                  <Link to={"/details/" + element.imdbID}>
                     <Card.Img
                       className="movie-cover"
                       variant="top"
                       src={element.Poster}
-                      alt={element.imdbID}
                     />
                   </Link>
                 </Card>
@@ -60,7 +58,6 @@ const GalleryComponent = ({ saga }) => {
                       className="movie-cover"
                       variant="top"
                       src={element.Poster}
-                      alt={element.imdbID}
                     />
                   </Link>
                 </Card>

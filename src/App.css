@@ -37,6 +37,12 @@
   }
 }
 
-a.navbar-links:hover {
-  text-decoration: none;
+a.navbar-links {
+  color: grey;
+}
+a.navbar-link:hover {
+  color: rgb(231, 229, 229);
+}
+.white-text {
+  color: rgb(207, 207, 207);
 }
