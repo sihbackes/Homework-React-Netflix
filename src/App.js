@@ -1,20 +1,24 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBarComponent from "./components/nav-bar/NavBarComponet";
-import GalleryComponent from "./components/gallery/GalleryComponent";
-import SearchComponent from "./components/search/SearchComponent";
+import Home from "./components/HomeComponent";
 import FooterComponent from "./components/footer/FooterComponent";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TvShows from "./components/tv-show/TvShowsComponent";
 
 function App() {
   return (
-    <>
-      <NavBarComponent />
-      <SearchComponent />
-      <GalleryComponent saga="Shrek" />
-      <GalleryComponent saga="Lord of the Rings" />
-      <GalleryComponent saga="Twilight" />
-      <FooterComponent />
-    </>
+    <BrowserRouter>
+      <>
+        <NavBarComponent />
+        <Routes>
+          <Route element={<TvShows />} path="/tv-shows" />
+          <Route element={<Home />} path="/" />
+        </Routes>
+
+        <FooterComponent />
+      </>
+    </BrowserRouter>
   );
 }
 

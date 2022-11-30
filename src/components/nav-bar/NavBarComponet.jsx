@@ -1,14 +1,16 @@
 import logo from "../../assets/netflix_logo.png";
 import avatar from "../../assets/avatar.png";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 const NavBarComponent = () => {
+  const location = useLocation();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="index.html">
-          <img src={logo} className="logo-netflix-nav" />
+        <a className="navbar-brand" href="/">
+          <img src={logo} className="logo-netflix-nav" alt="" />
         </a>
         <button
           className="navbar-toggler"
@@ -23,31 +25,38 @@ const NavBarComponent = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-between">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="http://ubeytdemir.me/netflix-ui">
+            <li
+              className={
+                location.pathname === "/tv-shows"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <Link to="/" className="navbar-links">
                 Home
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
+            <li
+              className={
+                location.pathname === "/tv-shows"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <Link to="/tv-shows" className="navbar-links">
                 Tv Shows
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 Movies
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Recently Added
               </a>
             </li>
           </ul>
 
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -61,12 +70,12 @@ const NavBarComponent = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 KIDS
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

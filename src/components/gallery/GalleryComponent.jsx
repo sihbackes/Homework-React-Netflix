@@ -1,69 +1,76 @@
-import { Component } from "react";
 import { Card, Row, Col, Carousel } from "react-bootstrap";
 import "./style.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-class GalleryComponent extends Component {
-  state = {
-    movies: [],
-  };
+const GalleryComponent = ({ saga }) => {
+  const [movies, setMovies] = useState([]);
 
-  fetchComments = async () => {
-    try {
-      let response = await fetch(
-        `http://www.omdbapi.com/?apikey=db3657b9&s=${this.props.saga}`
-      );
-      if (response.ok) {
-        let data = await response.json();
-        this.setState({ movies: data.Search });
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        let response = await fetch(
+          `http://www.omdbapi.com/?apikey=db3657b9&s=${saga}`
+        );
+        if (response.ok) {
+          let data = await response.json();
+          console.log(data);
+          setMovies(data.Search);
+        }
+      } catch (err) {
+        console.log(err.message);
       }
-    } catch (err) {
-      console.log(err.message);
+    };
+    if (saga) {
+      fetchComments();
     }
-  };
-  componentDidMount() {
-    this.fetchComments();
-  }
+  }, [saga]);
 
-  render() {
-    console.log(this.state.movies);
-    return (
-      <div className="bg-black">
-        <h3 className="title-saga mt-3 mb-3">{this.props.saga}</h3>
-        <Carousel fade>
-          <Carousel.Item>
-            <Row>
-              {this.state.movies.slice(0, 5).map((element, i) => (
-                <Col key={i}>
-                  <Card>
+  console.log();
+  return (
+    <div className="bg-black">
+      <h3 className="title-saga mt-3 mb-3">{saga}</h3>
+      <Carousel fade>
+        <Carousel.Item>
+          <Row>
+            {movies.slice(0, 5).map((element, i) => (
+              <Col key={i}>
+                <Card>
+                  <Link to={"/details/" + movies.imdbID}>
                     <Card.Img
                       className="movie-cover"
                       variant="top"
                       src={element.Poster}
+                      alt={element.imdbID}
                     />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </Carousel.Item>
-          <Carousel.Item className="movie-row">
-            <Row>
-              {this.state.movies.slice(5, 10).map((element, i) => (
-                <Col key={i}>
-                  <Card>
+                  </Link>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Carousel.Item>
+        <Carousel.Item className="movie-row">
+          <Row>
+            {movies.slice(5, 10).map((element, i) => (
+              <Col key={i}>
+                <Card>
+                  <Link to={"/details/" + element.imdbID}>
                     <Card.Img
                       className="movie-cover"
                       variant="top"
                       src={element.Poster}
+                      alt={element.imdbID}
                     />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </Carousel.Item>
-        </Carousel>
-      </div>
-    );
-  }
-}
+                  </Link>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Carousel.Item>
+      </Carousel>
+    </div>
+  );
+};
 
 export default GalleryComponent;

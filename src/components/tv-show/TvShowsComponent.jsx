@@ -1,6 +1,6 @@
 import "./style.css";
-
-const SearchComponent = () => {
+import GalleryComponent from "../gallery/GalleryComponent";
+const TvShows = () => {
   return (
     <div class="container-fluid">
       <div class="genre-details">
@@ -42,8 +42,13 @@ const SearchComponent = () => {
           </div>
         </div>
       </div>
+      <div>
+        <GalleryComponent saga="Hunger Games" />
+        <GalleryComponent saga="Sherlock Holmes" />
+        <GalleryComponent saga="Avatar" />
+      </div>
     </div>
   );
 };
 
-export default SearchComponent;
+export default TvShows;
